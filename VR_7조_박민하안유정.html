@@ -1,0 +1,834 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>VR 프로젝트</title>
+    <style>
+        body{ 
+            margin: 0; 
+            overflow: hidden; 
+        }
+
+        button{
+            position: absolute;
+            background-color: rgba(0, 0, 0, 0%);
+            font-size: 14px;
+            padding: 10px;
+            border: none;
+            display:none;
+        }
+
+        #btn1{
+            top: 20px;
+            left: 50px;
+            width: 70px;
+            height: 92.6px;
+            background-image: url("https://i.postimg.cc/qMvMbf1Z/image.png");
+            background-size: 100%;
+        }
+        #btn1:hover{
+            background-image:url("https://i.postimg.cc/7hnXCvS7/Kakao-Talk-20210608-223736950.jpg");
+        }
+
+        #btn2{
+            top: 30px;
+            left: 140px;
+            width: 84.8px;
+            height: 70px;
+            background-image: url("https://i.postimg.cc/w382B541/image.png");
+            background-size: 100%;
+        }
+        #btn2:hover{
+            background-image: url("https://i.postimg.cc/NGD1rkW1/image.jpg");
+        }
+
+        #btn3{
+            top: 130px;
+            left: 20px;
+            width: 70px;
+            height: 67.5px;            
+            background-image: url("https://i.postimg.cc/L8RdCj44/image.png");
+            background-size: 100%;
+        }
+        #btn3:hover{
+            background-image: url("https://i.postimg.cc/fRGXh29h/image.jpg");
+        }
+        #btn4{
+            top: 130px;
+            left: 110px;
+            width: 70px;
+            height: 84.8px; 
+            background-image: url("https://i.postimg.cc/kMFvNSHv/image.png");
+            background-size: 100%;
+        }
+        #btn4:hover{
+            background-image: url("https://i.postimg.cc/cCLtcPVf/image.png");
+        }
+        #btn5{
+            top: 110px;
+            left: 200px;
+            width: 70px;
+            height: 82.6px; 
+            background-image: url("https://i.postimg.cc/hPvQJ7Rj/image.png");
+            background-size: 100%;
+        }
+        #btn5:hover{
+            background-image: url("https://i.postimg.cc/8CgFY72p/image.jpg");
+        }
+
+        #btn6{
+            bottom: 60px;
+            right: 70px;
+            width: 150px;
+            height: 52px; 
+            background-image: url("https://i.postimg.cc/sg4cnXh2/image.png");
+            background-size: 100%;
+            
+            
+        }
+        #btn6:hover{
+            
+            background-image: url("https://i.postimg.cc/DzfcRTrP/image.png");
+            background-size: 100%;
+            
+        }
+        #btn7{
+            bottom: 200px;
+            right: 750px;
+            width: 100px;
+            height: 40px; 
+            background-image: url("https://i.postimg.cc/ZY1PL3Cm/image.png");
+            background-size: 100%;
+            
+            
+        }
+        #btn7:hover{
+            
+            background-image: url("https://i.postimg.cc/QMXvxv3f/image.png");
+            background-size: 100%;
+            
+        }
+
+        #btn8{
+            bottom: 200px;
+            right: 750px;
+            width: 100px;
+            height: 40px; 
+            background-image: url("https://i.postimg.cc/ZY1PL3Cm/image.png");
+            background-size: 100%;
+            
+            
+        }
+        #btn8:hover{
+            
+            background-image: url("https://i.postimg.cc/QMXvxv3f/image.png");
+            background-size: 100%;
+            
+        }
+        
+       
+        #d1{
+            
+        
+            position: absolute;
+            background-image: url("https://i.postimg.cc/Y91LwZGm/image.png");
+           
+            width: 400px;
+            height:485px;
+            right:600px;
+            bottom:200px;
+            background-size: 100%;
+        }
+        
+
+        #d2{
+            position: absolute;
+            background-image: url("https://i.postimg.cc/vHX9BJPr/image.png");
+           
+            width: 400px;
+            height:485px;
+            right:600px;
+            bottom:200px;
+            background-size: 100%;
+        }
+
+        #d3{
+            position: absolute;
+            background-image: url(" https://i.postimg.cc/63RnpTSq/image.png");
+           
+            width: 400px;
+            height:485px;
+            right:600px;
+            bottom:200px;
+            background-size: 100%;
+        }
+
+        #d4{
+            position: absolute;
+            background-image: url("https://i.postimg.cc/TwQ73LgG/image.png");
+           
+            width: 400px;
+            height:485px;
+            right:600px;
+            bottom:200px;
+            background-size: 100%;
+        }
+
+        #d5{
+            position: absolute;
+            background-image: url(" https://i.postimg.cc/tg6Yhwzm/image.png");
+           
+            width: 400px;
+            height:485px;
+            right:600px;
+            bottom:200px;
+            background-size: 100%;
+        }
+
+
+    </style>
+
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/tween.js/18.6.4/tween.umd.min.js"></script>
+
+</head>
+<body>
+    <canvas id='three'></canvas>
+
+    <button id="btn1"></button>
+    <button id="btn2"></button>
+    <button id="btn3"></button>
+    <button id="btn4"></button>
+    <button id="btn5"></button>
+    <button id="btn6"></button>
+    <button id="btn7"></button>
+    <button id="btn8"></button>
+    <button id="btn9"></button>
+
+    <div class="desc" id="d1" style="display: none;">
+    </div>
+    <div class="desc" id="d2" style="display: none;">
+    </div>
+    <div class="desc" id="d3" style="display: none;">
+    </div>
+    <div class="desc" id="d4" style="display: none;">
+    </div>
+    <div class="desc" id="d5" style="display: none;">
+    </div>
+
+    
+
+   
+
+
+    <script type='module'>
+        import * as THREE from './three.js-dev/build/three.module.js';
+        import * as dat from './three.js-dev/examples/jsm/libs/dat.gui.module.js';
+        import {OrbitControls} from './three.js-dev/examples/jsm/controls/OrbitControls.js';
+        import {OBJLoader} from './three.js-dev/examples/jsm/loaders/OBJLoader.js';
+        import {MTLLoader} from './three.js-dev/examples/jsm/loaders/MTLLoader.js';
+        import {GLTFLoader} from './three.js-dev/examples/jsm/loaders/GLTFLoader.js';
+
+        let threeCanvas = document.querySelector('#three');
+
+        let renderer = new THREE.WebGLRenderer( { canvas: threeCanvas, antialias: true } );
+        renderer.setSize( window.innerWidth, window.innerHeight );
+        renderer.setClearColor( 0xffffff )
+        renderer.setAnimationLoop( animate );
+
+        let scene = new THREE.Scene();
+
+        let camera = new THREE.PerspectiveCamera( 75, window.innerWidth/window.innerHeight, 0.01, 200 );
+        camera.position.set(4.85, 19.21, 131.17);
+        scene.add( camera );
+
+        let light = new THREE.DirectionalLight( 0xffffff, 1 );
+        light.position.set( 6, 6, 6 );
+        scene.add( light );
+
+        let light3 = new THREE.DirectionalLight( 0xffffff, 1 );
+        light.position.set( -2.5, -2, 5 );
+        scene.add( light3 );
+            
+        // let lightHelper = new THREE.DirectionalLight(0xffffff, 1);
+        // scene.add(lightHelper);
+        // light.position.z = 5;
+        // light.position.x = 5;
+        // light.position.y = 5;
+
+        let light2 = new THREE.AmbientLight( 0xffffff, 0.3 );
+        scene.add( light2 );
+
+        let light4 = new THREE.PointLight( 0xffffff, 1, -20 );
+        light4.position.set(6.5, 15, 1.1);
+        scene.add( light4 );
+        
+        const helper = new THREE.PointLightHelper(light4);
+        scene.add( helper );
+       
+
+        let controls = new OrbitControls ( camera, renderer.domElement );
+        controls.target = new THREE.Vector3( 1.29, 15.79, -1.25 );
+      
+
+
+        renderer.toneMapping = THREE.ACESFilmicToneMapping;  
+        renderer.toneMappingExposure = 1.2; 
+
+        
+
+        // let gui = new dat.GUI();
+        // gui.add(light.position, 'x', -5, 5, 0.1);
+        // gui.add(light.position, 'y', -5, 5, 0.1);
+        // gui.add(light.position, 'z', -5, 5, 0.1);
+
+        $('#btn3').click(function(){
+            moveCamera(3.06, -0.14, 5.81, 2.69, -0.18, 5.82, 1000);
+            // camera.position.set(3.06, -0.14, 5.81);
+            // controls.target = new THREE.Vector3( 2.69, -0.18, 5.82);
+            $('botton').hide();
+            $('#btn6').show();
+            $('#btn7').hide();
+            
+            $('#btn8').hide();
+        })
+
+        $('#btn2').click(function(){
+            moveCamera(2.33, -0.01, 1.23, -0.82,-1.08, 1.97, 1000);
+            // camera.position.set(2.81, 0, 0.60);
+            // controls.target = new THREE.Vector3( 2.22, -0.13, 0.84);
+           
+
+   
+
+            $('botton').hide();
+            $('#btn6').show();
+            $('#btn7').hide();
+            
+            $('#btn8').hide();
+
+            })
+
+        $('#btn1').click(function(){
+            moveCamera(2.33, 0.37, -4.86, 1.03, -0.06, -4.13, 1000);
+            // camera.position.set(2.33, 0.37, -4.86);
+            // controls.target = new THREE.Vector3( 1.03, -0.06, -4.13);
+            $('botton').hide();
+            $('#btn6').show();
+            $('#btn7').hide();
+            
+            $('#btn8').hide();
+
+
+
+            })
+
+        $('#btn4').click(function(){
+            moveCamera(9.75, 1.16, -1.51, 11.73, -0.01, -2.70, 1000);
+            // camera.position.set(9.75,  1.16, -1.51);
+            // controls.target = new THREE.Vector3( 11.73, -0.01, -2.70);
+            $('botton').hide();
+            $('#btn6').show();
+            $('#btn7').hide();
+            
+            $('#btn8').hide();
+
+
+            })
+
+        $('#btn5').click(function(){
+            moveCamera(9.25,  1.06, 6.48,  13.59, -1.00, 4.92, 1000);
+            // camera.position.set( 9.25,  1.06, 6.48);
+            // controls.target = new THREE.Vector3( 13.59, -1.00, 4.92);
+            $('botton').hide();
+            $('#btn6').show();
+            $('#btn7').hide();
+            
+            $('#btn8').hide();
+
+            })
+
+        $('#btn6').click(function(){
+            moveCamera(6.14, 0.04, 9.43, 6.21, -1.42, -1.51, 1000);
+            // camera.position.set( 6.14,  0.04,  9.43);
+            // controls.target = new THREE.Vector3(6.21, -1.42, -1.51);
+            $('#btn6').hide();
+            $('botton').show();
+            $('#btn7').show();
+            
+            $('#btn8').show();
+            
+           
+
+            })
+         $('#btn7').click(function(){
+            moveCamera(5.96, 0, -0.19, 5.97, -0.19, -1.67, 1000);
+            // camera.position.set( 6.14,  0.04,  9.43);
+            // controls.target = new THREE.Vector3(6.21, -1.42, -1.51);
+            $('#btn7').hide();
+            $('botton').show();
+            $('#btn8').hide();
+            
+            
+
+            })
+
+        $('#btn8').click(function(){
+            moveCamera(6.26, 0.25, 4.60, 6.30, -0.57, -1.62, 1000);
+            // camera.position.set( 6.14,  0.04,  9.43);
+            // controls.target = new THREE.Vector3(6.21, -1.42, -1.51);
+            
+           
+            $('#btn8').hide();
+
+           
+
+            })
+
+ 
+
+
+
+
+
+
+
+    let gltfLoader = new GLTFLoader();
+
+    let gltf2Loader = new GLTFLoader();
+
+    // let gltf3Loader = new GLTFLoader();
+   
+
+    gltfLoader.load('models/ground.gltf', function(gltf){
+    let ground = gltf.scene;
+    ground.name="ground";
+    scene.add(ground);
+    console.log(ground);
+    ground.scale.set(2,2,2);
+    ground.position.z=30;
+    
+    
+    });
+
+    
+    gltf2Loader.load('models/go.gltf', function(gltf2){
+       
+       let go = gltf2.scene;
+       scene.add(go);
+       console.log(go);
+       go.position.z=30;
+       go.position.y=8;
+
+       go.scale.set(2, 2, 2);
+
+       let anih=new TWEEN.Tween({ py: 0 })
+               .to({ py: 1 }, 500)
+               .easing(TWEEN.Easing.Quadratic.InOut)
+               .onUpdate(function(v){
+                   go.position.y = v.py;
+                   go.position.x = v.py;
+                   })
+               .repeat(Infinity)
+               .yoyo(true)
+               
+               .start()
+  
+    });   
+    // let goodLoader = new GLTFLoader();
+
+    // goodLoader.load('models/one.gltf', function(good){
+       
+    //    let one = good.scene;
+    //    scene.add(one);
+    //    console.log(one);
+    //    one.position.z=30;
+
+    //    one.scale.set(2, 2, 2);
+    //    toFind.push( one.getObjectByName("Box") )
+
+    //    let anig = new TWEEN.Tween({ py: 0 })
+    //            .to({ py: 1 }, 2000)
+    //            .easing(TWEEN.Easing.Bounce.In)
+    //            .onUpdate(function(v){
+    //             one.position.y = v.py;
+    //                })
+    //            .repeat(Infinity)
+    //            .yoyo(true)
+    //            .repeatDelay(500)
+    //            .start()
+  
+    // });   
+
+    // let goodeLoader = new GLTFLoader();
+
+    // goodeLoader.load('models/two.gltf', function(goode){
+       
+    //    let two = goode.scene;
+    //    scene.add(two);
+    //    console.log(two);
+    //    two.position.z=30;
+
+    //    two.scale.set(2, 2, 2);
+
+    //    let anik = new TWEEN.Tween({ py: 0 })
+    //            .to({ py: 1 }, 1000)
+    //            .easing(TWEEN.Easing.Bounce.InOut)
+    //            .onUpdate(function(v){
+    //             two.position.y = v.py;
+    //                })
+    //            .repeat(Infinity)
+    //            .yoyo(true)
+    //            .repeatDelay(500)
+    //            .start()
+  
+    // });   
+    
+  
+   
+
+   let gltf3Loader = new GLTFLoader();
+   
+
+   let toFind = [];
+
+   gltf3Loader.load('models/frame.gltf', function(gltf3){
+    let frame = gltf3.scene;
+    frame.name="frame";
+    scene.add(frame);
+    console.log(frame);
+    frame.scale.set(2,2,2);
+    
+    toFind.push( frame.getObjectByName("plane") )
+
+    let ani2 = new TWEEN.Tween({ py: 0 })
+               .to({ py: 1 }, 500)
+               .easing(TWEEN.Easing.Quadratic.InOut)
+               .onUpdate(function(v){
+                   frame.position.y = v.py;
+                   frame.position.x = v.py;
+                   })
+               .repeat(Infinity)
+               .yoyo(true)
+               
+               .start()
+});
+
+        let mouse = new THREE.Vector2();
+        $(window).on('mousemove', function(event){
+            mouse.x = (event.clientX / window.innerWidth) * 2 - 1
+            mouse.y = - (event.clientY / window.innerHeight) * 2 + 1
+        });
+
+        let raycaster = new THREE.Raycaster();
+        $('#three').click(function(){
+            console.log("카메라의 위치")
+        console.log(camera.position);
+        console.log(controls.target);
+            raycaster.setFromCamera(mouse, camera)
+            let intersects = raycaster.intersectObjects( toFind ) // toFind 배열로 raycaster를 진행
+            
+            if(intersects.length > 0){                
+                // 찾은 object는 intersects[0].object 로 받아옴
+                let foundMesh = intersects[0].object;
+                
+                if( foundMesh.name == "plane" ){ // 만약 leaf1을 찾았다면,
+                    moveCamera(11.49, 6.56, 32.90, 11.02, 5.15, -2.17, 3500);
+                    
+                }
+                if( foundMesh.name == "plane2" ){ // 만약 leaf1을 찾았다면,
+                  moveCamera(6.14, 0.04, 9.43, 6.21, -1.42, -1.51, 1000);
+                  $('button').show();
+                  $('#btn6').hide();
+                  $('#btn7').show();
+                  
+                }
+                if( foundMesh.name == "plane3" ){ // 만약 leaf1을 찾았다면,
+                    $('.desc').hide();
+                    $('#d1').show();
+                    
+                 
+                  
+                }
+                if( foundMesh.name == "plane4" ){ // 만약 leaf1을 찾았다면,
+                     $('.desc').hide();
+                     $('#d3').show();
+                  
+                  
+                }
+                if( foundMesh.name == "plane5" ){ // 만약 leaf1을 찾았다면,
+                    $('.desc').hide();
+                    $('#d2').show();
+                
+
+                  
+                }
+                if( foundMesh.name == "plane6" ){ // 만약 leaf1을 찾았다면,
+                    $('.desc').hide();
+                    $('#d4').show();
+                
+
+                  
+                }
+                if( foundMesh.name == "plane7" ){ // 만약 leaf1을 찾았다면,
+                    $('.desc').hide();
+                    $('#d5').show();
+                
+
+                  
+                }
+              
+                
+                
+            }
+
+            // $('.desc').hide();
+            // $('#d2').show();
+        });
+
+    
+        $(window).resize(function(){
+            renderer.setSize( window.innerWidth, window.innerHeight );
+            camera.aspect = window.innerWidth/window.innerHeight;
+            camera.updateProjectionMatrix();
+        });
+    
+
+    
+    let gltf8Loader = new GLTFLoader();
+   
+   
+
+
+   gltf8Loader.load('models/houseee.gltf', function(gltf8){
+   let housee = gltf8.scene;
+   housee.name="housee";
+   scene.add(housee);
+   console.log(housee);
+   housee.scale.set(2,2,2);
+   housee.position.z=30;
+   toFind.push( housee.getObjectByName("plane2") )
+   });
+   
+    
+
+
+    $(window).resize(function(){
+        renderer.setSize( window.innerWidth, window.innerHeight );
+        camera.aspect = window.innerWidth/window.innerHeight;
+        camera.updateProjectionMatrix();
+    });
+
+   
+
+  
+
+   let gltf9Loader = new GLTFLoader();
+   
+
+   gltf9Loader.load('models/two room.gltf', function(gltf9){
+   let room = gltf9.scene;
+   room.name="room";
+   scene.add(room);
+   console.log(room);
+   room.scale.set(2,2,2);
+   room.position.z=30;
+   
+
+   });
+
+   let gltf10Loader = new GLTFLoader();
+   
+
+   gltf10Loader.load('models/three room.gltf', function(gltf10){
+   let room2 = gltf10.scene;
+   room2.name="room2";
+   scene.add(room2);
+   console.log(room2);
+   room2.scale.set(2,2,2);
+   room2.position.z=30;
+   
+
+   });
+
+   let gltf11Loader = new GLTFLoader();
+   
+//   let toFind3=[];
+    // let toFind2=[];
+   gltf11Loader.load('models/pop.gltf', function(gltf11){
+   let pop = gltf11.scene;
+   pop.name="pop";
+   scene.add(pop);
+   console.log(pop);
+   pop.scale.set(2,2,2);
+   pop.position.z=30;
+   toFind.push( pop.getObjectByName("plane3") )
+
+   let ani3 = new TWEEN.Tween({ py: 0 })
+               .to({ py: 0.1 }, 2000)
+               .easing(TWEEN.Easing.Bounce.InOut)
+               .onUpdate(function(v){
+                   pop.position.x = v.py;
+                   })
+               .repeat(Infinity)
+               .yoyo(true)
+               .repeatDelay(2000)
+               
+               .start()
+
+
+});
+
+
+
+   let gltf12Loader = new GLTFLoader();
+   
+//    let toFind3=[];
+
+   gltf12Loader.load('models/star.gltf', function(gltf12){
+   let star = gltf12.scene;
+   star.name="star";
+   scene.add(star);
+   console.log(star);
+   star.scale.set(2,2,2);
+   star.position.z=30;
+   toFind.push( star.getObjectByName("plane5") )
+
+   let ani4 = new TWEEN.Tween({ py: 0 })
+               .to({ py: 0.1 }, 2000)
+               .easing(TWEEN.Easing.Bounce.InOut)
+               .onUpdate(function(v){
+                   star.position.x = v.py;
+                   })
+               .repeat(Infinity)
+               .yoyo(true)
+               .repeatDelay(2000)
+               
+               .start()
+});
+
+let gltf13Loader = new GLTFLoader();
+   
+   //    let toFind3=[];
+   
+      gltf13Loader.load('models/mona.gltf', function(gltf13){
+      let mona = gltf13.scene;
+      mona.name="mona";
+      scene.add(mona);
+      console.log(mona);
+      mona.scale.set(2,2,2);
+      mona.position.z=30;
+      toFind.push( mona.getObjectByName("plane4") )
+
+      let ani5 = new TWEEN.Tween({ py: 0 })
+               .to({ py: 0.1 }, 2000)
+               .easing(TWEEN.Easing.Bounce.InOut)
+               .onUpdate(function(v){
+                   mona.position.x = v.py;
+                   })
+               .repeat(Infinity)
+               .yoyo(true)
+               .repeatDelay(2000)
+               
+               .start()
+
+   });
+
+   let gltf14Loader = new GLTFLoader();
+   
+   //    let toFind3=[];
+   
+      gltf14Loader.load('models/flower.gltf', function(gltf14){
+      let flower = gltf14.scene;
+      flower.name="flower";
+      scene.add(flower);
+      console.log(flower);
+      flower.scale.set(2,2,2);
+      flower.position.z=30;
+      toFind.push( flower.getObjectByName("plane7") )
+
+      let ani6 = new TWEEN.Tween({ py: 0 })
+               .to({ py: 0.1 }, 2000)
+               .easing(TWEEN.Easing.Bounce.InOut)
+               .onUpdate(function(v){
+                  flower.position.x = -v.py;
+                   })
+               .repeat(Infinity)
+               .yoyo(true)
+               .repeatDelay(2000)
+               
+               .start()
+
+   });
+
+   let gltf15Loader = new GLTFLoader();
+   
+   //    let toFind3=[];
+   
+      gltf15Loader.load('models/omg.gltf', function(gltf15){
+      let omg = gltf15.scene;
+      omg.name="omg";
+      scene.add(omg);
+      console.log(omg);
+      omg.scale.set(2,2,2);
+      omg.position.z=30;
+      toFind.push( omg.getObjectByName("plane6") )
+
+      let ani7 = new TWEEN.Tween({ py: 0 })
+               .to({ py: 0.1 }, 2000)
+               .easing(TWEEN.Easing.Bounce.InOut)
+               .onUpdate(function(v){
+                   omg.position.x = -v.py;
+                   })
+               .repeat(Infinity)
+               .yoyo(true)
+               .repeatDelay(2000)
+               
+               .start()
+
+   });
+
+ 
+
+        function animate( time ){
+            renderer.render( scene, camera );
+            controls.update();
+
+            TWEEN.update( time );
+        }
+
+        function moveCamera(_x, _y, _z, _tx, _ty, _tz, _d){
+            let ca = new TWEEN.Tween({
+                    x: camera.position.x,
+                    y: camera.position.y,
+                    z: camera.position.z,
+                    tx: controls.target.x,
+                    ty: controls.target.y,
+                    tz: controls.target.z,
+                })
+                .to({
+                    x: _x,
+                    y: _y,
+                    z: _z,
+                    tx: _tx,
+                    ty: _ty,
+                    tz: _tz,
+                }, _d)
+                .easing(TWEEN.Easing.Quadratic.InOut)
+                .onUpdate(function(val){
+                    camera.position.set( val.x, val.y, val.z );
+                    controls.target = new THREE.Vector3( val.tx, val.ty, val.tz );
+                }) 
+                .start();
+        }
+
+
+        $('.desc').click(function(){
+            $(this).hide();
+        })
+
+    </script>    
+</body>
+</html>
